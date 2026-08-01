@@ -16,11 +16,6 @@ void player_account::load_account()
     VERIFY(tmp_store);
     const auto tmp_curr_prof = tmp_lmngr->get_current_profile();
 
-    if (!tmp_curr_prof)
-    {
-        Msg("* WARNING: player not logged in");
-    }
-
     if (tmp_curr_prof)
     {
         m_player_name = tmp_curr_prof->m_unique_nick;

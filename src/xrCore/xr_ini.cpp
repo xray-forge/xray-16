@@ -337,9 +337,6 @@ CInifile::CInifile(IReader* F, pcstr path, allow_include_func_t allow_include_fu
 
 CInifile::CInifile(pcstr fileName, bool readOnly, bool loadAtStart, bool saveAtEnd, u32 sect_count, allow_include_func_t allow_include_func)
 {
-    if (fileName && strstr(fileName, "system"))
-        Msg("-----loading %s", fileName);
-
     m_file_name[0] = 0;
     m_flags.zero();
     if (fileName)

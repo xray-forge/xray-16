@@ -26,9 +26,6 @@ IGame_Level::IGame_Level()
     pCurrentViewEntity = NULL;
     Sound = GEnv.Sound->create_scene();
     DefaultSoundScene = Sound;
-#ifndef MASTER_GOLD
-    GEnv.Render->ResourcesDumpMemoryUsage();
-#endif
 }
 
 IGame_Level::~IGame_Level()
@@ -49,9 +46,6 @@ IGame_Level::~IGame_Level()
     ///////////////////////////////////////////
     DefaultSoundScene = g_pGamePersistent->m_pSound;
     GEnv.Sound->destroy_scene(Sound);
-#ifndef MASTER_GOLD
-    GEnv.Render->ResourcesDumpMemoryUsage();
-#endif
 
     u32 m_base = 0, c_base = 0, m_lmaps = 0, c_lmaps = 0;
     if (GEnv.Render)

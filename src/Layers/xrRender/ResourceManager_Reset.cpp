@@ -106,7 +106,7 @@ void mdump(C c)
 CResourceManager::~CResourceManager()
 {
     DestroyNecessaryTextures();
-#ifndef MASTER_GOLD
+#ifdef DEBUG
     Dump(false);
 #endif
 }

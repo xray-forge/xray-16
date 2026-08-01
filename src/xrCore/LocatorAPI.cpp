@@ -134,11 +134,26 @@ XRCORE_API void _dump_open_files(int mode)
 {
     if (mode == 1)
     {
+        bool any_opened = false;
+
         for (const auto& file : g_open_files)
         {
-            Log("----opened files");
             if (file._reader != nullptr)
+            {
+                if (!any_opened)
+                {
+                    Log("----opened files");
+                    any_opened = true;
+                }
+
                 Msg("[%d] fname:%s", file._used, file._fn.c_str());
+            }
+        }
+
+        if (!any_opened)
+        {
+            // nothing is open — stay silent (shutdown path)
+            return;
         }
     }
     else

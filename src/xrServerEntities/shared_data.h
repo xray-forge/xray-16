@@ -21,7 +21,10 @@ public:
         if (!_self)
             return;
 #ifndef MASTER_GOLD
-        Log("DestroySingleton::RefCounter:", _refcount);
+        if (_refcount != 0)
+        {
+            Log("DestroySingleton::RefCounter:", _refcount);
+        }
 #endif
         VERIFY(_on_self_delete == false);
         VERIFY(_refcount == 0);

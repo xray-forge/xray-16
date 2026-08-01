@@ -231,9 +231,6 @@ void CRender::LoadBuffers(CStreamReader* base_fs, bool alternative)
             // count, size
             const u32 vCount = fs->r_u32();
             const u32 vSize = GetDeclVertexSize(dcl, 0);
-#ifndef MASTER_GOLD
-            Msg("* [Loading VB] %d verts, %d Kb", vCount, (vCount * vSize) / 1024);
-#endif
 
             // Create and fill
             //  TODO: DX11: Check fragmentation.
@@ -259,9 +256,6 @@ void CRender::LoadBuffers(CStreamReader* base_fs, bool alternative)
         for (u32 i = 0; i < count; i++)
         {
             const u32 iCount = fs->r_u32();
-#ifndef MASTER_GOLD
-            Msg("* [Loading IB] %d indices, %d Kb", iCount, (iCount * 2) / 1024);
-#endif
 
             // Create and fill
             //  TODO: DX11: Check fragmentation.

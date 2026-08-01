@@ -204,7 +204,9 @@ bool CEventAPI::Peek(pcstr EName)
 
 void CEventAPI::_destroy()
 {
+#ifdef DEBUG
     Dump();
+#endif
     if (Events.empty())
         Events.clear();
     if (Events_Deferred.empty())

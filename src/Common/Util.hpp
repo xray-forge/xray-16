@@ -21,7 +21,9 @@
         if ((x))\
         {\
             (x)->AddRef();\
-            Log(msg, u32((x)->Release()));\
+            const u32 _show_ref_count = u32((x)->Release());\
+            if (_show_ref_count > 1)\
+                Log(msg, _show_ref_count);\
         }\
     }
 #endif

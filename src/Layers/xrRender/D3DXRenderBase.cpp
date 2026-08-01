@@ -100,7 +100,7 @@ void D3DXRenderBase::Reset(SDL_Window* hWnd, u32& dwWidth, u32& dwHeight, float&
     // create everything, renderer may use
     reset_end();
 
-#ifndef MASTER_GOLD
+#ifdef DEBUG
     Resources->Dump(true);
 #endif
 
