@@ -403,7 +403,9 @@ void CActor::Load(LPCSTR section)
             cpcstr hit_name = ALife::g_cafHitType2String((ALife::EHitType)hit_type);
             cpcstr hit_snds = READ_IF_EXISTS(pSettings, r_string, hit_snd_sect, hit_name, "");
             const int cnt = _GetItemCount(hit_snds);
-#ifndef MASTER_GOLD
+#ifdef DEBUG
+            // Absence of sounds for a hit type is a valid config state (vanilla ships
+            // no physic_strike sounds), so only debug builds report the gaps.
             if (cnt == 0)
             {
                 Msg("~ [%s] is missing sounds for type [%s]", hit_snd_sect, hit_name);
